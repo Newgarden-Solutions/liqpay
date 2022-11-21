@@ -1,7 +1,8 @@
 enum LiqPayAction {
-  // TODO: Add other actions: hold, subscribe
   auth("auth"),
   donate("paydonate"),
+  hold("hold"),
+  subscribe("subscribe"),
   pay("pay");
 
   final String value;

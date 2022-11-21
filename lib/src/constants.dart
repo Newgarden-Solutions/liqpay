@@ -1,3 +1,4 @@
 const kHost = "liqpay.ua";
-const kApiEndpoint = "/api/request";
 const kApiVersion = 3;
+const kClientApiEndpoint = "/api/$kApiVersion/checkout";
+const kServerApiEndpoint = "/api/request";

@@ -1,6 +1,6 @@
 name: liqpay
-description: A starting point for Dart libraries or applications.
-version: 1.0.0
+description: LiqPay payment service wrapper library.
+version: 0.0.1
 homepage: https://github.com/Newgarden-Solutions/liqpay
 
 environment:

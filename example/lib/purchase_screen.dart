@@ -142,9 +142,8 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                     final cardDate = _cardExpiryDate.split('/');
                     final card = LiqPayCard(_cardNumber.trim(), cardDate[0],
                         cardDate[1], _cardCvvCode);
-                    final order = LiqPayOrder(
-                        const Uuid().v4(), 1, 'Test', card,
-                        action: LiqPayAction.auth);
+                    final order = LiqPayOrder(const Uuid().v4(), 1, 'Test',
+                        card: card, action: LiqPayAction.auth);
                     await liqPay.purchase(order);
                   },
                   child: const Text("PURCHASE")),
