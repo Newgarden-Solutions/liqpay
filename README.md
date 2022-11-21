@@ -1,9 +1,8 @@
+### SUPER EARLY DEVELOPMENT STAGE, USE WITH CAUTION!
+
 ## LiqPay
 
-(LiqPay)[https://www.liqpay.ua/en] payment service wrapper library.
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+[LiqPay](https://www.liqpay.ua/en) payment service wrapper library to be used on a client or server side dart.
 
 ## Features
 
