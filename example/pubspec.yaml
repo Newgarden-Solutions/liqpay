@@ -12,10 +12,10 @@ dependencies:
 
   # Utility
   uuid: ^3.0.6
-  intl: ^0.17.0
+  intl: ^0.18.1
 
   # UI
-  flutter_credit_card: ^3.0.3
+  flutter_credit_card: ^3.0.6
 
   liqpay:
     path: ../
