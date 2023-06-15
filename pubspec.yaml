@@ -1,6 +1,6 @@
 name: liqpay
-description: LiqPay payment service wrapper library.
-version: 0.0.1
+description: LiqPay payment service wrapper library to be used on a client or server side dart.
+version: 0.0.1+1
 homepage: https://github.com/Newgarden-Solutions/liqpay
 
 environment:
@@ -8,8 +8,8 @@ environment:
 
 dependencies:
   # Network
-  http: ^0.13.6
-  http_interceptor: ^1.0.2
+  http: ^1.0.0
+  http_interceptor: ^2.0.0-beta.7
 
   # Utility
   uuid: ^3.0.7
@@ -19,6 +19,6 @@ dependencies:
   crypto: ^3.0.3
 
 dev_dependencies:
-  lints: ^2.1.0
+  lints: ^2.1.1
   test: ^1.24.3
-  mockito: ^5.4.1
+  mockito: ^5.4.2

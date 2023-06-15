@@ -8,13 +8,13 @@
 
 Package has minimum number of features
 - Form LiqPay orders with direct card information
-- Form LiqPay order with server callback passed
+- Form LiqPay orders with server callback passed
 
 ## Usage
 
 ```dart
 final liqPay = LiqPay("public_liqpay_key", "private_liqpay_key");
-final number = "4242424242424242"
+final number = "4242424242424242";
 final expirationMonth = "12";
 final expirationYear = "99";
 final cvv = "000";
