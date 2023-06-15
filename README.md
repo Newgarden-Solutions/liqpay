@@ -1,29 +1,29 @@
 ### SUPER EARLY DEVELOPMENT STAGE, USE WITH CAUTION!
 
-## LiqPay
+# LiqPay
 
 [LiqPay](https://www.liqpay.ua/en) payment service wrapper library to be used on a client or server side dart.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Package has minimum number of features
+- Form LiqPay orders with direct card information
+- Form LiqPay order with server callback passed
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
 ```dart
-const like = 'sample';
+final liqPay = LiqPay("public_liqpay_key", "private_liqpay_key");
+final number = "4242424242424242"
+final expirationMonth = "12";
+final expirationYear = "99";
+final cvv = "000";
+final card = LiqPayCard(number, expirationMonth, expirationDate, cvv);
+final order = LiqPayOrder(const Uuid().v4(), 1, 'Test', card: card, action: LiqPayAction.pay);
+
+await liqPay.purchase(order);
 ```
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+More documentation can be found on [LiqPay Official Website](https://www.liqpay.ua/en/documentation/start)
