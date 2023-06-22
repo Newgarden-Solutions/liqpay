@@ -1,3 +1,7 @@
+# 0.0.1+2
+
+- Updated dependencies and resolved some pub.dev issues
+
 # 0.0.1+1
 
 - Updated dependencies and some docs
