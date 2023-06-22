@@ -2,6 +2,8 @@
 
 # LiqPay
 
+[![pub package](https://img.shields.io/pub/v/liqpay.svg)](https://pub.dev/packages/liqpay)
+
 [LiqPay](https://www.liqpay.ua/en) payment service wrapper library to be used on a client or server side dart.
 
 ## Features

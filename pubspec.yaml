@@ -4,7 +4,7 @@ version: 0.0.1+1
 homepage: https://github.com/Newgarden-Solutions/liqpay
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: ">=3.0.2 <4.0.0"
 
 dependencies:
   # Network
@@ -13,7 +13,6 @@ dependencies:
 
   # Utility
   uuid: ^3.0.7
-  equatable: ^2.0.5
 
   # Security
   crypto: ^3.0.3

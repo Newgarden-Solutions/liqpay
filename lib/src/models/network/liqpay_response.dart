@@ -1,16 +1,26 @@
-import 'package:equatable/equatable.dart';
-import 'package:liqpay/src/models/network/liqpay_error_response.dart';
-import 'package:liqpay/src/models/network/liqpay_success_response.dart';
+import 'package:liqpay/liqpay.dart';
 
 /// Base LiqPay response class
-class LiqPayResponse extends Equatable {
+class LiqPayResponse {
+  /// Result of the response.
+  ///
+  /// `ok` in case of success
+  /// `error` in case of failure
   final String result;
+
+  /// Status of the result.
+  ///
+  /// `success` in case of success
+  /// `failure` in case of error
   final String status;
 
-  const LiqPayResponse(this.result, this.status);
+  /// Numeric API version (e.g. "3") returned as string.
+  final String version;
 
-  @override
-  List<Object?> get props => [result, status];
+  /// Action used in request that resulted in this response.
+  final LiqPayAction action;
+
+  const LiqPayResponse(this.result, this.status, this.version, this.action);
 
   factory LiqPayResponse.success(Map<String, dynamic> json) =>
       LiqPaySuccessResponse.fromJson(json);

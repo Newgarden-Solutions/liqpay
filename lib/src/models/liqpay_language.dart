@@ -1,5 +1,6 @@
 enum LiqPayLanguage {
   uk("uk"),
+  ru("ru"),
   en("en");
 
   final String value;

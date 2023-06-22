@@ -1,17 +1,34 @@
-import 'package:equatable/equatable.dart';
 import 'package:liqpay/src/models/liqpay_action.dart';
 import 'package:liqpay/src/models/liqpay_card.dart';
 import 'package:liqpay/src/models/liqpay_currency.dart';
 import 'package:liqpay/src/models/liqpay_language.dart';
 
-class LiqPayOrder extends Equatable {
+class LiqPayOrder {
+  /// Unique purchase identifier in your shop.
+  /// Maximum length is `255` symbols.
   final String id;
+
+  /// Payment amount. For example: 5, 7.34
   final double amount;
+
+  /// Payment description.
   final String description;
+
+  /// Payment action
   final LiqPayAction action;
+
+  /// Payment currency
   final LiqPayCurrency currency;
+
+  /// Card details (number, cvv etc.)
   final LiqPayCard? card;
+
+  /// Customer's language.
   final LiqPayLanguage? language;
+
+  /// URL API for notifications of payment status change (server -> server).
+  /// Maximum length is `510` symbols.
+  /// More details here: https://www.liqpay.ua/en/documentation/api/callback
   final String? serverUrl;
 
   const LiqPayOrder(this.id, this.amount, this.description,
@@ -20,10 +37,6 @@ class LiqPayOrder extends Equatable {
       this.action = LiqPayAction.pay,
       this.currency = LiqPayCurrency.uah,
       this.language = LiqPayLanguage.uk});
-
-  @override
-  List<Object?> get props =>
-      [id, amount, description, action, currency, card, language];
 
   factory LiqPayOrder.fromJson(Map<String, dynamic> json) => LiqPayOrder(
         json['order_id'] as String,
