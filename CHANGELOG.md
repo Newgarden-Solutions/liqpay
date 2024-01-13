@@ -1,3 +1,7 @@
+# 0.0.1+3
+
+- Updated dependencies, added basic tests and resolved lint issues
+
 # 0.0.1+2
 
 - Updated dependencies and resolved some pub.dev issues

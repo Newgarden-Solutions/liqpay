@@ -5,9 +5,8 @@ import 'package:liqpay/liqpay.dart';
 class LiqPayErrorResponse extends LiqPayResponse {
   final String? errorCode;
   final String? errorDescription;
-  LiqPayErrorResponse(String result, String status, String version,
-      LiqPayAction action, this.errorCode, this.errorDescription)
-      : super(result, status, version, action);
+  LiqPayErrorResponse(super.result, super.status, super.version,
+      super.action, this.errorCode, this.errorDescription);
 
   factory LiqPayErrorResponse.fromJson(Map<String, dynamic> json) =>
       LiqPayErrorResponse(

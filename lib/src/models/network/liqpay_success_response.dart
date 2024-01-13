@@ -4,8 +4,7 @@ import 'package:liqpay/liqpay.dart';
 // TODO: https://github.com/Newgarden-Solutions/liqpay/issues/2
 class LiqPaySuccessResponse extends LiqPayResponse {
   LiqPaySuccessResponse(
-      String result, String status, String version, LiqPayAction action)
-      : super(result, status, version, action);
+      super.result, super.status, super.version, super.action);
 
   factory LiqPaySuccessResponse.fromJson(Map<String, dynamic> json) =>
       LiqPaySuccessResponse(

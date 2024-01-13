@@ -23,7 +23,7 @@ class LiqPay {
   Future<LiqPayResponse> purchase(LiqPayOrder order) async {
     final url = Uri.https(kHost, kServerApiEndpoint);
 
-    final response = await client.post(url, body: getRequestData(order));
+    final response = await client.post(url, body: _getRequestData(order));
 
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
@@ -38,15 +38,10 @@ class LiqPay {
     }
   }
 
-  String _createSignature(String data) {
-    final signatureString = privateKey + data + privateKey;
-    return base64.encode(sha1.convert(utf8.encode(signatureString)).bytes);
-  }
-
   /// Performs checkout request to LiqPay with [order]
   /// This will actually return redirect url location.
   Future<String> checkout(LiqPayOrder order) async {
-    final url = Uri.https(kHost, kClientApiEndpoint, getRequestData(order));
+    final url = Uri.https(kHost, kClientApiEndpoint, _getRequestData(order));
     final response = await client.post(url);
     if (response.statusCode == 200) {
       return response.body;
@@ -62,7 +57,7 @@ class LiqPay {
 
   /// Returns request data and signature from the [order] object.
   /// Resulting map will contain values within "data" and "signature" keys.
-  Map<String, String> getRequestData(LiqPayOrder order) {
+  Map<String, String> _getRequestData(LiqPayOrder order) {
     final jsonObject = order.toJson();
     jsonObject['public_key'] = publicKey;
     jsonObject['version'] = kApiVersion.toString();
@@ -74,5 +69,11 @@ class LiqPay {
     final signature = _createSignature(data);
 
     return {"data": data, "signature": signature};
+  }
+
+  /// Creates signature for the [data] string.
+  String _createSignature(String data) {
+    final signatureString = privateKey + data + privateKey;
+    return base64.encode(sha1.convert(utf8.encode(signatureString)).bytes);
   }
 }
