@@ -10,7 +10,7 @@ class LiqPaySuccessResponse extends LiqPayResponse {
       LiqPaySuccessResponse(
         json['result'] as String,
         json['status'] as String,
-        json['version'] as String,
+        json['version'].toString(),
         LiqPayAction.fromValue(json['action']),
       );
 }
