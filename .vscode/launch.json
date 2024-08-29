@@ -21,5 +21,18 @@
             "request": "launch",
             "type": "dart"
         },
+        {
+            "name": "Run (example) Web",
+            "cwd": "example",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "-d",
+                "chrome",
+                "--web-port=50000",
+                "--web-enable-expression-evaluation",
+                "--web-browser-flag=--disable-web-security",
+            ]
+        },
     ]
 }

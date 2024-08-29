@@ -9,7 +9,11 @@ enum LiqPayAction {
 
   const LiqPayAction(this.value);
 
-  static LiqPayAction fromValue(String value) {
+  static LiqPayAction? fromValue(String? value) {
+    if (value == null) {
+      return null;
+    }
+
     for (LiqPayAction entry in LiqPayAction.values) {
       if (entry.value == value) {
         return entry;

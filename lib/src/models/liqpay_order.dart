@@ -15,10 +15,10 @@ class LiqPayOrder {
   final String description;
 
   /// Payment action
-  final LiqPayAction action;
+  final LiqPayAction? action;
 
   /// Payment currency
-  final LiqPayCurrency currency;
+  final LiqPayCurrency? currency;
 
   /// Card details (number, cvv etc.)
   final LiqPayCard? card;
@@ -48,8 +48,8 @@ class LiqPayOrder {
             json['card_exp_month'] as String,
             json['card_exp_year'] as String,
             json['card_cvv'] as String),
-        action: LiqPayAction.fromValue(json['action']),
-        currency: LiqPayCurrency.fromValue(json['currency']),
+        action: LiqPayAction.fromValue(json['action'] as String?),
+        currency: LiqPayCurrency.fromValue(json['currency'] as String?),
       );
 
   Map<String, dynamic> toJson() {
@@ -57,8 +57,8 @@ class LiqPayOrder {
       'order_id': id,
       'amount': amount,
       'description': description,
-      'action': action.value,
-      'currency': currency.value,
+      'action': action?.value,
+      'currency': currency?.value,
     };
 
     if (card != null) {

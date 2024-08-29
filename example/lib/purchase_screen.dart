@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_credit_card/credit_card_brand.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
 import 'package:liqpay/liqpay.dart';
 import 'package:uuid/uuid.dart';
@@ -56,6 +55,7 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             CreditCardWidget(
+              enableFloatingCard: true,
               glassmorphismConfig: null,
               cardNumber: _cardNumber,
               expiryDate: _cardExpiryDate,
@@ -70,16 +70,6 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
               backgroundImage: null,
               isSwipeGestureEnabled: true,
               onCreditCardWidgetChange: (CreditCardBrand creditCardBrand) {},
-              customCardTypeIcons: <CustomCardTypeIcon>[
-                CustomCardTypeIcon(
-                  cardType: CardType.mastercard,
-                  cardImage: Image.asset(
-                    'assets/mastercard.png',
-                    height: 48,
-                    width: 48,
-                  ),
-                ),
-              ],
             ),
             Expanded(
               child: SingleChildScrollView(
@@ -96,38 +86,38 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                       isExpiryDateVisible: true,
                       cardHolderName: _cardHolderName,
                       expiryDate: _cardExpiryDate,
-                      themeColor: Colors.green,
-                      textColor: Colors.black,
-                      cardNumberDecoration: InputDecoration(
-                        labelText: 'Number',
-                        hintText: 'XXXX XXXX XXXX XXXX',
-                        hintStyle: const TextStyle(color: Colors.black),
-                        labelStyle: const TextStyle(color: Colors.black),
-                        focusedBorder: border,
-                        enabledBorder: border,
-                      ),
-                      expiryDateDecoration: InputDecoration(
-                        hintStyle: const TextStyle(color: Colors.black),
-                        labelStyle: const TextStyle(color: Colors.black),
-                        focusedBorder: border,
-                        enabledBorder: border,
-                        labelText: 'Expired Date',
-                        hintText: 'XX/XX',
-                      ),
-                      cvvCodeDecoration: InputDecoration(
-                        hintStyle: const TextStyle(color: Colors.black),
-                        labelStyle: const TextStyle(color: Colors.black),
-                        focusedBorder: border,
-                        enabledBorder: border,
-                        labelText: 'CVV',
-                        hintText: 'XXX',
-                      ),
-                      cardHolderDecoration: InputDecoration(
-                        hintStyle: const TextStyle(color: Colors.black),
-                        labelStyle: const TextStyle(color: Colors.black),
-                        focusedBorder: border,
-                        enabledBorder: border,
-                        labelText: 'Card Holder',
+                      inputConfiguration: InputConfiguration(
+                        cardNumberDecoration: InputDecoration(
+                          labelText: 'Number',
+                          hintText: 'XXXX XXXX XXXX XXXX',
+                          hintStyle: const TextStyle(color: Colors.black),
+                          labelStyle: const TextStyle(color: Colors.black),
+                          focusedBorder: border,
+                          enabledBorder: border,
+                        ),
+                        expiryDateDecoration: InputDecoration(
+                          hintStyle: const TextStyle(color: Colors.black),
+                          labelStyle: const TextStyle(color: Colors.black),
+                          focusedBorder: border,
+                          enabledBorder: border,
+                          labelText: 'Expired Date',
+                          hintText: 'XX/XX',
+                        ),
+                        cvvCodeDecoration: InputDecoration(
+                          hintStyle: const TextStyle(color: Colors.black),
+                          labelStyle: const TextStyle(color: Colors.black),
+                          focusedBorder: border,
+                          enabledBorder: border,
+                          labelText: 'CVV',
+                          hintText: 'XXX',
+                        ),
+                        cardHolderDecoration: InputDecoration(
+                          hintStyle: const TextStyle(color: Colors.black),
+                          labelStyle: const TextStyle(color: Colors.black),
+                          focusedBorder: border,
+                          enabledBorder: border,
+                          labelText: 'Card Holder',
+                        ),
                       ),
                       onCreditCardModelChange: onCreditCardModelChange,
                     ),
