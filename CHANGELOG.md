@@ -1,3 +1,8 @@
+# 0.0.3
+
+- Minimum required Flutter version is 3.35
+- Updated dependencies, lint issues fixes
+
 # 0.0.2
 
 - Added basic common fields to responses

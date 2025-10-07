@@ -1,7 +1,7 @@
 /// Support for doing something awesome.
 ///
 /// More dartdocs go here.
-library liqpay;
+library;
 
 export 'src/liqpay.dart';
 export 'src/models/liqpay_order.dart';

@@ -28,7 +28,7 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
 
     border = OutlineInputBorder(
       borderSide: BorderSide(
-        color: Colors.grey.withOpacity(0.7),
+        color: Colors.grey.withValues(alpha: 0.7),
         width: 2.0,
       ),
     );

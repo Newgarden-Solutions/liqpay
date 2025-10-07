@@ -44,17 +44,20 @@ class LiqPayResponse {
   /// Action used in request that resulted in this response.
   final LiqPayAction? action;
 
-  const LiqPayResponse(this.result, this.status,
-      {this.version,
-      this.action,
-      this.orderId,
-      this.liqPayOrderId,
-      this.publicKey,
-      this.is3ds,
-      this.amount,
-      this.description,
-      this.currency,
-      this.language});
+  const LiqPayResponse(
+    this.result,
+    this.status, {
+    this.version,
+    this.action,
+    this.orderId,
+    this.liqPayOrderId,
+    this.publicKey,
+    this.is3ds,
+    this.amount,
+    this.description,
+    this.currency,
+    this.language,
+  });
 
   factory LiqPayResponse.success(Map<String, dynamic> json) =>
       LiqPaySuccessResponse.fromJson(json);

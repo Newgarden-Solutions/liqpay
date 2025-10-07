@@ -2,9 +2,7 @@ import 'package:http_interceptor/http_interceptor.dart';
 
 class LoggingInterceptor implements InterceptorContract {
   @override
-  Future<BaseRequest> interceptRequest({
-    required BaseRequest request,
-  }) async {
+  Future<BaseRequest> interceptRequest({required BaseRequest request}) async {
     print('----- REQUEST -----');
     print(request.toString());
     print('HEADERS 👇\n\n${request.headers.toString()}');

@@ -2,17 +2,20 @@ import 'package:liqpay/liqpay.dart';
 
 /// Base LiqPay success response class
 class LiqPaySuccessResponse extends LiqPayResponse {
-  LiqPaySuccessResponse(super.result, super.status,
-      {super.version,
-      super.action,
-      super.orderId,
-      super.liqPayOrderId,
-      super.publicKey,
-      super.is3ds,
-      super.amount,
-      super.description,
-      super.currency,
-      super.language});
+  LiqPaySuccessResponse(
+    super.result,
+    super.status, {
+    super.version,
+    super.action,
+    super.orderId,
+    super.liqPayOrderId,
+    super.publicKey,
+    super.is3ds,
+    super.amount,
+    super.description,
+    super.currency,
+    super.language,
+  });
 
   factory LiqPaySuccessResponse.fromJson(Map<String, dynamic> json) {
     final common = LiqPayResponse.parseCommon(json);

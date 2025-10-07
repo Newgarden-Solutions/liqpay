@@ -6,17 +6,21 @@ class LiqPayErrorResponse extends LiqPayResponse {
   final String? errorDescription;
 
   LiqPayErrorResponse(
-      super.result, super.status, this.errorCode, this.errorDescription,
-      {super.version,
-      super.action,
-      super.orderId,
-      super.liqPayOrderId,
-      super.publicKey,
-      super.is3ds,
-      super.amount,
-      super.description,
-      super.currency,
-      super.language});
+    super.result,
+    super.status,
+    this.errorCode,
+    this.errorDescription, {
+    super.version,
+    super.action,
+    super.orderId,
+    super.liqPayOrderId,
+    super.publicKey,
+    super.is3ds,
+    super.amount,
+    super.description,
+    super.currency,
+    super.language,
+  });
 
   factory LiqPayErrorResponse.fromJson(Map<String, dynamic> json) {
     final common = LiqPayResponse.parseCommon(json);

@@ -17,52 +17,64 @@ void main() {
     final url = Uri.https(kHost, kServerApiEndpoint);
 
     test(
-        'returns LiqPaySuccessResponse when status code 200 and the call completes successfully',
-        () async {
-      final kSuccessResponse = http.Response(
+      'returns LiqPaySuccessResponse when status code 200 and the call completes successfully',
+      () async {
+        final kSuccessResponse = http.Response(
           '{"result": "ok","status": "success","version": "$kApiVersion","action": "${LiqPayAction.pay.value}"}',
-          200);
+          200,
+        );
 
-      when(mockClient.post(url, body: anyNamed('body')))
-          .thenAnswer((_) async => kSuccessResponse);
+        when(
+          mockClient.post(url, body: anyNamed('body')),
+        ).thenAnswer((_) async => kSuccessResponse);
 
-      final result = await liqPay.purchase(order);
-      expect(result, isA<LiqPaySuccessResponse>());
-      expect(result.result, "ok");
-      expect(result.status, "success");
-      expect(result.action, LiqPayAction.pay);
-      expect(result.version, "$kApiVersion");
-    });
+        final result = await liqPay.purchase(order);
+        expect(result, isA<LiqPaySuccessResponse>());
+        expect(result.result, "ok");
+        expect(result.status, "success");
+        expect(result.action, LiqPayAction.pay);
+        expect(result.version, "$kApiVersion");
+      },
+    );
 
     test(
-        'returns LiqPayErrorResponse when status code 200 but the call completes with an error',
-        () async {
-      final kErrorResponse = http.Response(
+      'returns LiqPayErrorResponse when status code 200 but the call completes with an error',
+      () async {
+        final kErrorResponse = http.Response(
           '{"result": "error","status": "failure","version": "$kApiVersion","action": "${LiqPayAction.pay.value}"}',
-          200);
+          200,
+        );
 
-      when(mockClient.post(url, body: anyNamed('body')))
-          .thenAnswer((_) async => kErrorResponse);
+        when(
+          mockClient.post(url, body: anyNamed('body')),
+        ).thenAnswer((_) async => kErrorResponse);
 
-      final result = await liqPay.purchase(order);
-      expect(result, isA<LiqPayErrorResponse>());
-      expect(result.result, "error");
-      expect(result.status, "failure");
-      expect(result.action, LiqPayAction.pay);
-      expect(result.version, "$kApiVersion");
-    });
+        final result = await liqPay.purchase(order);
+        expect(result, isA<LiqPayErrorResponse>());
+        expect(result.result, "error");
+        expect(result.status, "failure");
+        expect(result.action, LiqPayAction.pay);
+        expect(result.version, "$kApiVersion");
+      },
+    );
 
     test('throws HttpException when status code not 200', () async {
       final response = http.Response("", 400);
-      when(mockClient.post(url, body: anyNamed('body')))
-          .thenAnswer((_) async => response);
+      when(
+        mockClient.post(url, body: anyNamed('body')),
+      ).thenAnswer((_) async => response);
 
       expect(
-          liqPay.purchase(order),
-          throwsA(predicate((e) =>
-              e is HttpException &&
-              e.uri == url &&
-              e.message == response.toString())));
+        liqPay.purchase(order),
+        throwsA(
+          predicate(
+            (e) =>
+                e is HttpException &&
+                e.uri == url &&
+                e.message == response.toString(),
+          ),
+        ),
+      );
     });
   });
 }

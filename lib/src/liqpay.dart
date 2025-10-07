@@ -11,8 +11,9 @@ import 'package:liqpay/src/models/liqpay_order.dart';
 import 'package:liqpay/src/models/network/liqpay_response.dart';
 
 class LiqPay {
-  http.Client client =
-      InterceptedClient.build(interceptors: [LoggingInterceptor()]);
+  http.Client client = InterceptedClient.build(
+    interceptors: [LoggingInterceptor()],
+  );
 
   final String privateKey;
   final String publicKey;
@@ -46,7 +47,8 @@ class LiqPay {
     if (response.statusCode == 200) {
       return response.body;
     } else if (response.statusCode == 302) {
-      final location = response.headers["location"] ??
+      final location =
+          response.headers["location"] ??
           (throw HttpException(response.toString(), uri: url));
       log("Redirect location: $location");
       return location;

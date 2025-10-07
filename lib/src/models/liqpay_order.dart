@@ -31,26 +31,31 @@ class LiqPayOrder {
   /// More details here: https://www.liqpay.ua/en/documentation/api/callback
   final String? serverUrl;
 
-  const LiqPayOrder(this.id, this.amount, this.description,
-      {this.card,
-      this.serverUrl,
-      this.action = LiqPayAction.pay,
-      this.currency = LiqPayCurrency.uah,
-      this.language = LiqPayLanguage.uk});
+  const LiqPayOrder(
+    this.id,
+    this.amount,
+    this.description, {
+    this.card,
+    this.serverUrl,
+    this.action = LiqPayAction.pay,
+    this.currency = LiqPayCurrency.uah,
+    this.language = LiqPayLanguage.uk,
+  });
 
   factory LiqPayOrder.fromJson(Map<String, dynamic> json) => LiqPayOrder(
-        json['order_id'] as String,
-        json['amount'] as double,
-        json['description'] as String,
-        serverUrl: json['server_url'],
-        card: LiqPayCard(
-            json['card'] as String,
-            json['card_exp_month'] as String,
-            json['card_exp_year'] as String,
-            json['card_cvv'] as String),
-        action: LiqPayAction.fromValue(json['action'] as String?),
-        currency: LiqPayCurrency.fromValue(json['currency'] as String?),
-      );
+    json['order_id'] as String,
+    json['amount'] as double,
+    json['description'] as String,
+    serverUrl: json['server_url'],
+    card: LiqPayCard(
+      json['card'] as String,
+      json['card_exp_month'] as String,
+      json['card_exp_year'] as String,
+      json['card_cvv'] as String,
+    ),
+    action: LiqPayAction.fromValue(json['action'] as String?),
+    currency: LiqPayCurrency.fromValue(json['currency'] as String?),
+  );
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{
