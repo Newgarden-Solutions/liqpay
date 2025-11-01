@@ -1,7 +1,8 @@
-# 0.0.4
+# 0.1.0
 
 - Updated documentation for checkout with webview
 - Updated example to include webview checkout
+- Updated version to better reflect actual state and supported functionality
 
 # 0.0.3
 
