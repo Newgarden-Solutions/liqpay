@@ -1,6 +1,6 @@
 name: liqpay
 description: LiqPay payment service wrapper library to be used on a client or server side dart.
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/Newgarden-Solutions/liqpay
 repository: https://github.com/Newgarden-Solutions/liqpay
 issue_tracker: https://github.com/Newgarden-Solutions/liqpay/issues

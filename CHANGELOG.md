@@ -1,3 +1,7 @@
+# 0.0.4
+
+- Updated documentation for checkout with web view
+
 # 0.0.3
 
 - Minimum required Flutter version is 3.35
