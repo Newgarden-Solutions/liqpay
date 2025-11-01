@@ -1,6 +1,7 @@
 # 0.0.4
 
-- Updated documentation for checkout with web view
+- Updated documentation for checkout with webview
+- Updated example to include webview checkout
 
 # 0.0.3
 
