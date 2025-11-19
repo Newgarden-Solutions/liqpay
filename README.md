@@ -1,4 +1,8 @@
-### SUPER EARLY DEVELOPMENT STAGE, USE WITH CAUTION!
+# Annotation
+
+The package is in early stage. Development help and support is highly welcomed.
+
+[🇺🇦 Support Ukraine](https://u24.gov.ua/donate)
 
 # LiqPay
 
@@ -8,9 +12,9 @@
 
 ## Features
 
-Package has minimum number of features
-- Form LiqPay orders with direct card information
-- Form LiqPay orders with server callback passed
+Package has minimum number of features as of now.
+- Direct payment with card
+- Open checkout URL
 
 ## Usage
 

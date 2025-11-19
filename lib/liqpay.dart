@@ -12,3 +12,5 @@ export 'src/models/liqpay_card.dart';
 export 'src/models/network/liqpay_success_response.dart';
 export 'src/models/network/liqpay_error_response.dart';
 export 'src/models/network/liqpay_response.dart';
+export 'src/models/liqpay_rro_info.dart';
+export 'src/models/liqpay_item.dart';

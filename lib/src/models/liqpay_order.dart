@@ -2,6 +2,7 @@ import 'package:liqpay/src/models/liqpay_action.dart';
 import 'package:liqpay/src/models/liqpay_card.dart';
 import 'package:liqpay/src/models/liqpay_currency.dart';
 import 'package:liqpay/src/models/liqpay_language.dart';
+import 'package:liqpay/src/models/liqpay_rro_info.dart';
 
 class LiqPayOrder {
   /// Unique purchase identifier in your shop.
@@ -31,12 +32,32 @@ class LiqPayOrder {
   /// More details here: https://www.liqpay.ua/en/documentation/api/callback
   final String? serverUrl;
 
+  /// URL to which the user will be redirected after payment.
+  /// Maximum length is `510` symbols.
+  final String? resultUrl;
+
+  /// RRO info for fiscalization
+  final LiqPayRroInfo? rroInfo;
+
+  /// Date until which the client can pay the order (UTC, ISO 8601 format).
+  final DateTime? expiredDate;
+
+  /// Possible value Y.
+  /// Dynamic verification code, is generated and returned in Callback (see [serverUrl]).
+  /// The generated code will also be passed in the verification transaction for display in the client's card statement.
+  /// Works for [action] = [LiqPayAction.auth].
+  final String? verifyCode;
+
   const LiqPayOrder(
     this.id,
     this.amount,
     this.description, {
     this.card,
     this.serverUrl,
+    this.resultUrl,
+    this.rroInfo,
+    this.expiredDate,
+    this.verifyCode,
     this.action = LiqPayAction.pay,
     this.currency = LiqPayCurrency.uah,
     this.language = LiqPayLanguage.uk,
@@ -47,6 +68,14 @@ class LiqPayOrder {
     json['amount'] as double,
     json['description'] as String,
     serverUrl: json['server_url'],
+    resultUrl: json['result_url'],
+    rroInfo: json['rro_info'] != null
+        ? LiqPayRroInfo.fromJson(json['rro_info'] as Map<String, dynamic>)
+        : null,
+    expiredDate: json['expired_date'] != null
+        ? DateTime.parse(json['expired_date'] as String)
+        : null,
+    verifyCode: json['verifycode'] as String?,
     card: LiqPayCard(
       json['card'] as String,
       json['card_exp_month'] as String,
@@ -75,6 +104,22 @@ class LiqPayOrder {
 
     if (serverUrl != null) {
       json['server_url'] = serverUrl;
+    }
+
+    if (resultUrl != null) {
+      json['result_url'] = resultUrl;
+    }
+
+    if (rroInfo != null) {
+      json['rro_info'] = rroInfo?.toJson();
+    }
+
+    if (verifyCode != null) {
+      json['verifycode'] = verifyCode;
+    }
+
+    if (expiredDate != null) {
+      json['expired_date'] = expiredDate?.toUtc().toIso8601String();
     }
 
     return json;

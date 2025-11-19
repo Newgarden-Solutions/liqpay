@@ -1,3 +1,8 @@
+# 0.1.1
+
+- Added RRO info to LiqPay order
+- Updated dependencies & README.md
+
 # 0.1.0
 
 - Updated documentation for checkout with webview
